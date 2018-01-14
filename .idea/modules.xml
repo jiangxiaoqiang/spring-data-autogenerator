@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/spring-mybatis-starter.iml" filepath="$PROJECT_DIR$/spring-mybatis-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-mybatis-starter_main.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-mybatis-starter_main.iml" group="spring-mybatis-starter" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-mybatis-starter_test.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-mybatis-starter_test.iml" group="spring-mybatis-starter" />
+      <module fileurl="file://$PROJECT_DIR$/start-busniess/start-busniess.iml" filepath="$PROJECT_DIR$/start-busniess/start-busniess.iml" group="start-busniess" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/start-busniess/start-busniess_main.iml" filepath="$PROJECT_DIR$/.idea/modules/start-busniess/start-busniess_main.iml" group="start-busniess" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/start-busniess/start-busniess_test.iml" filepath="$PROJECT_DIR$/.idea/modules/start-busniess/start-busniess_test.iml" group="start-busniess" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/start-code-autogenerator/start-code-autogenerator.iml" filepath="$PROJECT_DIR$/.idea/modules/start-code-autogenerator/start-code-autogenerator.iml" group="start-code-autogenerator" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/start-code-autogenerator/start-code-autogenerator_main.iml" filepath="$PROJECT_DIR$/.idea/modules/start-code-autogenerator/start-code-autogenerator_main.iml" group="start-code-autogenerator" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/start-code-autogenerator/start-code-autogenerator_test.iml" filepath="$PROJECT_DIR$/.idea/modules/start-code-autogenerator/start-code-autogenerator_test.iml" group="start-code-autogenerator" />
+      <module fileurl="file://$PROJECT_DIR$/start-common/start-common.iml" filepath="$PROJECT_DIR$/start-common/start-common.iml" group="start-common" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/start-common/start-common_main.iml" filepath="$PROJECT_DIR$/.idea/modules/start-common/start-common_main.iml" group="start-common" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/start-common/start-common_test.iml" filepath="$PROJECT_DIR$/.idea/modules/start-common/start-common_test.iml" group="start-common" />
+      <module fileurl="file://$PROJECT_DIR$/start-data/start-data.iml" filepath="$PROJECT_DIR$/start-data/start-data.iml" group="start-data" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/start-data/start-data_main.iml" filepath="$PROJECT_DIR$/.idea/modules/start-data/start-data_main.iml" group="start-data" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/start-data/start-data_test.iml" filepath="$PROJECT_DIR$/.idea/modules/start-data/start-data_test.iml" group="start-data" />
+      <module fileurl="file://$PROJECT_DIR$/start-web/start-web.iml" filepath="$PROJECT_DIR$/start-web/start-web.iml" group="start-web" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/start-web/start-web_main.iml" filepath="$PROJECT_DIR$/.idea/modules/start-web/start-web_main.iml" group="start-web" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/start-web/start-web_test.iml" filepath="$PROJECT_DIR$/.idea/modules/start-web/start-web_test.iml" group="start-web" />
+    </modules>
+  </component>
+</project>

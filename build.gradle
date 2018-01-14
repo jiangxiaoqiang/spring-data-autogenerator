@@ -1,0 +1,168 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.2.RELEASE'
+        springfoxVersion = '2.7.0'
+        jacksonVersion = '2.8.8'
+        //log4j
+        log4jVersion = '1.2.16'
+        //mybatis
+        mybatisMapperVersion = '3.3.2'
+        //mybatis
+        mybatisVersion = '3.2.6'
+        //mybatis-spring
+        mybatisSpringVersion = '1.3.0'
+        generatorVersion = '1.3.5'
+        junitVersion = '4.12'
+    }
+    repositories {
+        maven { url 'http://repox.hualongdata.com/' }
+        mavenCentral()
+        maven { url 'http://repo.spring.io/plugins-release' }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath('io.spring.gradle:propdeps-plugin:0.0.9.RELEASE')
+    }
+}
+
+def ccDataLibs = fileTree(dir: "$rootDir/start-data/lib", include: '*.jar')
+
+
+task wrapper(type: Wrapper) {
+    description = 'Generates gradlew[.bat] scripts'
+    gradleVersion = '3.2.1'
+}
+
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+
+
+    repositories {
+        maven { url 'http://repox.hualongdata.com/' }
+        mavenCentral()
+    }
+}
+
+
+project(':start-web') {
+
+    dependencies {
+        compile project(':start-busniess')
+        compile project(':start-data')
+        compile ccDataLibs
+        compile(':start-common')
+        compile('commons-codec:commons-codec:1.10')
+        compile('org.springframework:spring-web:4.3.7.RELEASE')
+        compile('org.springframework.boot:spring-boot-starter-web:1.5.2.RELEASE')
+    }
+}
+
+project(':start-data') {
+
+    dependencies {
+        compile(':start-common')
+        compile ccDataLibs
+        compile('com.zaxxer:HikariCP:2.6.0')
+        compile("org.projectlombok:lombok:1.16.14")
+        compile "org.postgresql:postgresql:42.1.1"
+        compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '1.3.0'
+        compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.5'
+        compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.24'
+        compile group: 'org.mybatis', name: 'mybatis', version: '3.4.2'
+        compile group: 'org.mybatis', name: 'mybatis-typehandlers-jsr310', version: '1.0.2'
+    }
+}
+
+project(':start-busniess') {
+
+    configurations {
+        compile
+    }
+
+    dependencies {
+        compile project(':start-data')
+    }
+}
+
+project(':start-common') {
+
+    configurations {
+        compile
+    }
+
+    dependencies {
+    }
+}
+
+
+project(':start-code-autogenerator') {
+
+    apply plugin: 'war'
+
+    configurations {
+        mybatisGenerator
+    }
+
+    dependencies {
+        mybatisGenerator "org.mybatis.generator:mybatis-generator-core:${generatorVersion}"
+        mybatisGenerator "tk.mybatis:mapper:${mybatisMapperVersion}"
+        mybatisGenerator "log4j:log4j:${log4jVersion}"
+        mybatisGenerator "org.mybatis:mybatis:${mybatisVersion}"
+        mybatisGenerator "org.postgresql:postgresql:42.1.1"
+        mybatisGenerator "junit:junit:${junitVersion}"
+        mybatisGenerator "org.mybatis:mybatis-spring:${mybatisSpringVersion}"
+    }
+
+    dependencies {
+        compile "log4j:log4j:${log4jVersion}"
+        compile "org.mybatis:mybatis:${mybatisVersion}"
+        compile "org.postgresql:postgresql:42.1.1"
+        compile "junit:junit:${junitVersion}"
+        compile "org.mybatis:mybatis-spring:${mybatisSpringVersion}"
+        compile ccDataLibs
+    }
+
+    def getDbProperties = {
+        def properties = new Properties()
+        file("$rootDir/start-code-autogenerator/src/main/resources/jdbc.properties").withInputStream { inputStream ->
+            properties.load(inputStream)
+        }
+        properties
+    }
+    task mybatisGenerate << {
+        def properties = getDbProperties()
+        ant.properties['targetProject'] = projectDir.path
+        println(properties.getProperty("jdbc.driverClassName"))
+        println("$rootDir")
+        ant.properties['driverClass'] = "dm.jdbc.driver.DmDriver"
+        ant.properties['connectionURL'] = "jdbc:dm://localhost:5236/DMSERVER"
+        ant.properties['userId'] = "USER_XYCQ_ZS"
+        ant.properties['password'] = "hldata.2016"
+        ant.properties['src_main_java'] = sourceSets.main.java.srcDirs[0].path
+        ant.properties['src_main_resources'] = sourceSets.main.resources.srcDirs[0].path
+        ant.properties['modelPackage'] = "test.mybatis.pojo"
+        ant.properties['mapperPackage'] = "test.mybatis.mapper"
+        ant.properties['sqlMapperPackage'] = "mybatis"
+        ant.taskdef(
+                name: 'mbgenerator',
+                classname: 'org.mybatis.generator.ant.GeneratorAntTask',
+                classpath: configurations.mybatisGenerator.asPath
+        )
+        ant.mbgenerator(overwrite: true,
+                configfile: "$rootDir/start-code-autogenerator/src/main/resources/generatorConfig.xml", verbose: true) {
+            propertyset {
+                propertyref(name: 'targetProject')
+                propertyref(name: 'userId')
+                propertyref(name: 'driverClass')
+                propertyref(name: 'connectionURL')
+                propertyref(name: 'password')
+                propertyref(name: 'src_main_java')
+                propertyref(name: 'src_main_resources')
+                propertyref(name: 'modelPackage')
+                propertyref(name: 'mapperPackage')
+                propertyref(name: 'sqlMapperPackage')
+            }
+        }
+    }
+}

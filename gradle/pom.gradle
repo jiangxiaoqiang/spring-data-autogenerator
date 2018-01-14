@@ -1,0 +1,16 @@
+modifyPom {
+    project {
+        name = 'mybatis'
+        description = ' The mybatis test demo '
+        url = ''
+        inceptionYear = '2016'
+
+        developer{
+            developer{
+                id = 'jiangxiaoqiang'
+                name = 'dolphin'
+                email = 'jiangtingqiang@gmail.com'
+            }
+        }
+    }
+}

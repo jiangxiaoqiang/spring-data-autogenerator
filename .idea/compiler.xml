@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="spring-mybatis-starter_main" target="1.8" />
+      <module name="spring-mybatis-starter_test" target="1.8" />
+      <module name="start-business_main" target="1.8" />
+      <module name="start-business_test" target="1.8" />
+      <module name="start-busniess_main" target="1.8" />
+      <module name="start-busniess_test" target="1.8" />
+      <module name="start-code-autogenerator_main" target="1.8" />
+      <module name="start-code-autogenerator_test" target="1.8" />
+      <module name="start-common_main" target="1.8" />
+      <module name="start-common_test" target="1.8" />
+      <module name="start-data_main" target="1.8" />
+      <module name="start-data_test" target="1.8" />
+      <module name="start-web_main" target="1.8" />
+      <module name="start-web_test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Gradle : spring-mybatis-starter : start-code-autogenerator.war">
+    <output-path>$PROJECT_DIR$/start-code-autogenerator/build/libs</output-path>
+    <properties id="gradle-properties">
+      <options external-project-path="$PROJECT_DIR$" />
+    </properties>
+    <root id="archive" name="start-code-autogenerator.war">
+      <element id="artifact" artifact-name="Gradle : spring-mybatis-starter : start-code-autogenerator.war (exploded)" />
+    </root>
+  </artifact>
+</component>

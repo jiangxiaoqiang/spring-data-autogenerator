@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <classPathEntry location="/home/hldev/software/genMybatis/Dm7JdbcDriver17.jar"/>
+
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+
+        <commentGenerator>
+            <property name="suppressAllComments" value="false"></property>
+            <property name="suppressDate" value="true"></property>
+            <property name="javaFileEncoding" value="utf-8"/>
+        </commentGenerator>
+
+        <!--<jdbcConnection driverClass="org.postgresql.Driver"
+                        connectionURL="jdbc:postgresql://localhost:5432/dolphin"
+                        userId="postgres"
+                        password="123456">
+        </jdbcConnection>-->
+
+
+        <jdbcConnection driverClass="dm.jdbc.driver.DmDriver"
+                        connectionURL="jdbc:dm://localhost:5236/DMSERVER"
+                        userId="USER_XYCQ_ZS"
+                        password="hldata.2016">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!--Model生成路径-->
+        <!--<javaModelGenerator targetPackage="${modelPackage}" targetProject="${src_main_java}">
+            <property name="enableSubPackages" value="false"></property>
+            <property name="trimStrings" value="true"></property>
+        </javaModelGenerator>-->
+
+        <!--Model生成路径-->
+        <javaModelGenerator targetPackage="pojo" targetProject="/home/hldev/hldata/spring-examples/spring-mybatis-starter/start-data/src/main/java">
+            <property name="enableSubPackages" value="false"></property>
+            <property name="trimStrings" value="true"></property>
+        </javaModelGenerator>
+
+        <!--Mapper.java路径，动态设置-->
+        <!--<sqlMapGenerator targetPackage="${sqlMapperPackage}" targetProject="${src_main_resources}">
+            <property name="enableSubPackages" value="false"></property>
+        </sqlMapGenerator>-->
+
+        <sqlMapGenerator targetPackage="mapper" targetProject="/home/hldev/hldata/spring-examples/spring-mybatis-starter/start-data/src/main/resources">
+            <property name="enableSubPackages" value="false"></property>
+        </sqlMapGenerator>
+
+        <!---->
+
+        <javaClientGenerator targetPackage="mapper" targetProject="/home/hldev/hldata/spring-examples/spring-mybatis-starter/start-data/src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+        <table tableName="TS_C500035_JBXX_ZTSB_FRJC" enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               enableUpdateByExample="false">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+    </context>
+</generatorConfiguration>

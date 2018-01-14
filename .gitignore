@@ -1,0 +1,7 @@
+.gradle/
+.idea/.name
+.idea/misc.xml
+.idea/workspace.xml
+build/
+*.log
+app.pid
