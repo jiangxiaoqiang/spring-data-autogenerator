@@ -17,13 +17,13 @@
           <element id="dir-copy" path="$PROJECT_DIR$/start-code-autogenerator/build/resources/main" />
         </element>
         <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/start-data/lib/Dm7JdbcDriver17.jar" />
           <element id="library" level="project" name="Gradle: log4j:log4j:1.2.16" />
           <element id="library" level="project" name="Gradle: org.mybatis:mybatis:3.2.6" />
           <element id="library" level="project" name="Gradle: org.postgresql:postgresql:42.1.1" />
           <element id="library" level="project" name="Gradle: junit:junit:4.12" />
           <element id="library" level="project" name="Gradle: org.mybatis:mybatis-spring:1.3.0" />
           <element id="library" level="project" name="Gradle: org.hamcrest:hamcrest-core:1.3" />
-          <element id="file-copy" path="$PROJECT_DIR$/start-data/lib/Dm7JdbcDriver17.jar" />
         </element>
       </element>
     </root>

@@ -37,7 +37,7 @@
         </javaModelGenerator>-->
 
         <!--Model生成路径-->
-        <javaModelGenerator targetPackage="pojo" targetProject="/home/hldev/hldata/spring-examples/spring-mybatis-starter/start-data/src/main/java">
+        <javaModelGenerator targetPackage="pojo" targetProject="/home/hldev/jiangxiaoqiang/spring-data-autogenerator/spring-mybatis-starter/start-data/src/main/java">
             <property name="enableSubPackages" value="false"></property>
             <property name="trimStrings" value="true"></property>
         </javaModelGenerator>
@@ -47,13 +47,13 @@
             <property name="enableSubPackages" value="false"></property>
         </sqlMapGenerator>-->
 
-        <sqlMapGenerator targetPackage="mapper" targetProject="/home/hldev/hldata/spring-examples/spring-mybatis-starter/start-data/src/main/resources">
+        <sqlMapGenerator targetPackage="mapper" targetProject="/home/hldev/jiangxiaoqiang/spring-data-autogenerator/spring-mybatis-starter/start-data/src/main/resources">
             <property name="enableSubPackages" value="false"></property>
         </sqlMapGenerator>
 
         <!---->
 
-        <javaClientGenerator targetPackage="mapper" targetProject="/home/hldev/hldata/spring-examples/spring-mybatis-starter/start-data/src/main/java" type="XMLMAPPER">
+        <javaClientGenerator targetPackage="mapper" targetProject="/home/hldev/jiangxiaoqiang/spring-data-autogenerator/spring-mybatis-starter/start-data/src/main/java" type="XMLMAPPER">
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
 

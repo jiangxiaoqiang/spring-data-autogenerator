@@ -4,7 +4,7 @@ package pubenum;
  * Created by hldev on 18-1-14.
  */
 public enum RecordNum {
-    LARGER("LARGER",100);
+    LARGER("LARGER",1000000);
 
     private String name;
     private int value;

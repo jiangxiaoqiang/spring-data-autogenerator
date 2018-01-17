@@ -1,3 +1,5 @@
+apply plugin: 'java'
+
 ext {
     //gradle
     gradleVersion = '2.5'

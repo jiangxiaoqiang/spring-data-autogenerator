@@ -26,7 +26,7 @@ buildscript {
 }
 
 def ccDataLibs = fileTree(dir: "$rootDir/start-data/lib", include: '*.jar')
-
+def ccCommonBuildScript = file("$rootDir/gradle/dependencies.gradle")
 
 task wrapper(type: Wrapper) {
     description = 'Generates gradlew[.bat] scripts'
@@ -48,10 +48,10 @@ allprojects {
 project(':start-web') {
 
     dependencies {
+        compile project(':start-common')
         compile project(':start-busniess')
         compile project(':start-data')
         compile ccDataLibs
-        compile(':start-common')
         compile('commons-codec:commons-codec:1.10')
         compile('org.springframework:spring-web:4.3.7.RELEASE')
         compile('org.springframework.boot:spring-boot-starter-web:1.5.2.RELEASE')
@@ -87,11 +87,10 @@ project(':start-busniess') {
 
 project(':start-common') {
 
-    configurations {
-        compile
-    }
-
     dependencies {
+        compile("org.slf4j:slf4j-api:1.7.24")
+        compile("commons-lang:commons-lang: 2.6")
+        compile("org.apache.logging.log4j:log4j-api: 2.6.2")
     }
 }
 
